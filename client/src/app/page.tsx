@@ -23,6 +23,14 @@ const homePageQuery = qs.stringify({
           },
         },
         "blocks.heading": true,
+        "blocks.content-with-image": {
+          populate: {
+            image: {
+              fields: ["url", "alternativeText"],
+            },
+            link: true,
+          },
+        },
       },
     },
   },

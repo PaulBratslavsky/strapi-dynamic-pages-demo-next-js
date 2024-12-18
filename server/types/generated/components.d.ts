@@ -10,6 +10,21 @@ export interface BlocksCardCarousel extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksContentWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_content_with_images';
+  info: {
+    displayName: 'Content With Image';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'elements.link', false>;
+    reverse: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    subHeading: Schema.Attribute.String;
+    text: Schema.Attribute.RichText;
+  };
+}
+
 export interface BlocksHeading extends Struct.ComponentSchema {
   collectionName: 'components_blocks_headings';
   info: {
@@ -84,6 +99,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.card-carousel': BlocksCardCarousel;
+      'blocks.content-with-image': BlocksContentWithImage;
       'blocks.heading': BlocksHeading;
       'blocks.hero': BlocksHero;
       'elements.card': ElementsCard;

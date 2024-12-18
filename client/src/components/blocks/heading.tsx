@@ -6,7 +6,7 @@ interface HeadingProps {
   text?: string;
 }
 
-export function Heading({ heading, subHeading, text }: HeadingProps) {
+export function Heading({ heading, subHeading, text }: Readonly<HeadingProps>) {
   return (
     <section className="container flex flex-col items-center gap-6 pt-24 pb-2 sm:gap-7">
       <div className="flex flex-col gap-3">

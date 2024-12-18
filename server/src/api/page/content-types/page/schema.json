@@ -27,7 +27,8 @@
       "components": [
         "blocks.hero",
         "blocks.heading",
-        "blocks.card-carousel"
+        "blocks.card-carousel",
+        "blocks.content-with-image"
       ]
     }
   }
