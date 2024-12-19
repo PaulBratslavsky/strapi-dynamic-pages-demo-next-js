@@ -5,7 +5,7 @@ import { fetchAPI } from "@/lib/fetch-api";
 import { getStrapiURL } from "@/lib/utils";
 import { BlockRenderer } from "@/components/blocks/block-renderer";
 
-const homePageQuery = (slug: string) =>
+const pageQuery = (slug: string) =>
   qs.stringify({
     filters: {
       slug: {
@@ -47,7 +47,7 @@ async function loader(slug: string) {
   const path = "/api/pages";
   const url = new URL(path, BASE_URL);
 
-  url.search = homePageQuery(slug);
+  url.search = pageQuery(slug);
 
   const data = await fetchAPI(url.href, {
     method: "GET",
@@ -60,7 +60,7 @@ async function loader(slug: string) {
 }
 
 interface DynamicPageRouteProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // https://nextjs.org/docs/messages/sync-dynamic-apis
